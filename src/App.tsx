@@ -3,6 +3,7 @@ import { IconButton } from '@mui/material';
 import { SnackbarProvider, SnackbarKey } from 'notistack';
 import React from 'react';
 import { ThemeCustomProvider } from './contexts/theme-context/theme-context';
+import { WalletProvider } from './contexts/wallet-context/wallet-context';
 import RouterUrl from './routes';
 
 const notistackRef = React.createRef<SnackbarProvider>();
@@ -22,7 +23,9 @@ export default function App() {
                     </IconButton>
                 )}
             >
-                <RouterUrl />
+                <WalletProvider>
+                    <RouterUrl />
+                </WalletProvider>
             </SnackbarProvider>
         </ThemeCustomProvider>
     );
